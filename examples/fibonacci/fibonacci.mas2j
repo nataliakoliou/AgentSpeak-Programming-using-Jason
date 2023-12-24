@@ -1,0 +1,13 @@
+/*
+Fibonacci Project
+-----------------
+In this system, the "fib" agent performs recursive calculations to determine the Fibonacci
+number at a specified position.
+*/
+
+MAS fibonacci {
+
+    agents: fibo;
+
+    aslSourcePath: "src/agt";
+}

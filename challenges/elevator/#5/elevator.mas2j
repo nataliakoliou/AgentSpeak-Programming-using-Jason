@@ -1,0 +1,15 @@
+/*
+Elevator Project
+----------------
+In this system, the "machine" agent manages an elevator within a building. The elevator is
+used by multiple agents, including "bob" and others, to move between floors and reach
+their respective destinations.
+*/
+
+MAS elevator {
+
+    environment: example.Env
+    agents: machine; bob; alice; paul;
+
+    aslSourcePath: "src/agt";
+}

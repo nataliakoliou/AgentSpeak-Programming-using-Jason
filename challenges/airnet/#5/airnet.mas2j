@@ -1,0 +1,15 @@
+/*
+AirNet Project
+---------------
+This system demonstrates the implementation of the Contract Net Protocol (CNP) using Jason.
+It showcases communication dynamics in flight booking scenarios, without executing actions.
+For more details on CNP, visit http://www.fipa.org/specs/fipa00029/.
+*/
+
+MAS airnet {
+
+    infrastructure: Local
+    agents: manager; aegean #3; lufthansa; aeroflot;
+
+    aslSourcePath: "src/agt";
+}

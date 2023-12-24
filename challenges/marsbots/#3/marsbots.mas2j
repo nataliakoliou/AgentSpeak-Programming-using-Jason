@@ -1,0 +1,15 @@
+/*
+Mars Rover Project
+------------------
+This system simulates a scenario on Mars with two agents, r1 and d, operating in a grid environment. Agent r1
+is designed to collect garbage while agent d is responsible for disposing the collected garbage.
+*/
+
+MAS marsbots {
+
+    environment: example.Env
+
+    agents: r1; d;
+
+    aslSourcePath: "src/agt";
+}

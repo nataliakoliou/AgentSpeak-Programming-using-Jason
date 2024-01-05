@@ -112,8 +112,8 @@ public class Env extends Environment {
 }
 ```
 
-### ⚠️ Question-9: Ένα task με λίστες (Java to Jason)
-Αν θέλει το παιδί που με ρώτησε στο τελευταίο μάθημα σχετικά με αυτό το task, να μου στείλει ένα mail για να μου θυμίσει ποια ήταν ακριβώς η ερώτησή του. Thnx :)
+### Question-9: Where can I find additional resources and materials about Jason?
+Here are several valuable links: [Official Website](https://jason-lang.github.io/), [API Documentation](https://jason-lang.github.io/api/), [Related Paper](https://www.researchgate.net/publication/226708984_BDI_agent_programming_in_AgentSpeak_using_Jason), [Official GitHub](https://github.com/jason-lang/jason) and [Lab Slides](https://github.com/nataliakoliou/AgentSpeak-Programming-using-Jason/blob/main/slides.pdf) (check referenced papers as well). Due to the limited resources available for Jason, conducting smart searches on GitHub to find repositories that use it, can be a good practice (e.g. [here](https://github.com/search?q=.mas2j&type=code)).
 
 ## 🛎 I have more questions
 

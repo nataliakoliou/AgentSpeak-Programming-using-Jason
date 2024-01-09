@@ -92,25 +92,34 @@ public class Env extends Environment {
 ```
 
 ### Question-8: How can I store the data of an object within some grid environment?
-To keep track of objects' data in a grid environment, set up a list of maps in the Env class. Every time an object changes the grid (e.g. add/move/remove object), this list gets updated. Additionally, you may need to update the list in cases, where objects interact with agents. For example, in the taxi-world application, each entry in the list represents some customer's data, such as its ID, start and goal locations, as well as boolean variables indicating whether the customer has been served or is currently being served, etc:
+To keep track of objects' data in a grid environment, set up a list of maps in the Env class. Every time an object changes the grid (e.g. add/move/remove object), this list gets updated. Additionally, you may need to update the list in cases, where objects interact with agents. For example, in the taxi-world application, each entry in the list represents some customer's data, such as its ID, source and destination locations, as well as boolean variables indicating whether the customer has been served or is currently being served, etc:
 ```java
 public class Env extends Environment {
     ...
 
     class TaxiWorld extends GridWorldModel {
-        public List<Map<String, Location>> cDATA = new ArrayList<>();
+        public List<Map<String, Object>> customerData = new ArrayList<>();  // List to hold maps containing customer details
         ...
 
         void addCustomer() {
-            Location sloc = getStartLoc();
-            Location gloc = getGoalLoc();
+            Location src = getSource();
+            Location dst = getDestination();
 
-            add(CUSTOMER, sloc.x, sloc.y);
-            // initialize customer's data by adding a new map in cDATA list
+            add(CUSTOMER, src.x, src.y);  // Add the customer to the grid
+
+            Map<String, Object> details = new HashMap<>();  // Create a new map to store the customer's details
+            details.put("id", generateID());
+            details.put("source", src);
+            details.put("destination", dst);
+            details.put("served", false);
+            ...
+
+            customerData.add(details);  // Add the customer's details map to the list
             ...
         }
     }
 }
+
 ```
 
 ### Question-9: Where can I find additional resources and materials about Jason?

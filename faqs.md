@@ -115,6 +115,23 @@ public class Env extends Environment {
 ### Question-9: Where can I find additional resources and materials about Jason?
 Here are several valuable links: [Official Website](https://jason-lang.github.io/), [API Documentation](https://jason-lang.github.io/api/), [Related Paper](https://www.researchgate.net/publication/226708984_BDI_agent_programming_in_AgentSpeak_using_Jason), [Official GitHub](https://github.com/jason-lang/jason) and [Lab Slides](https://github.com/nataliakoliou/AgentSpeak-Programming-using-Jason/blob/main/slides.pdf) (check referenced papers as well). Due to the limited resources available for Jason, conducting smart searches on GitHub to find repositories that use it, can be a good practice (e.g. [here](https://github.com/search?q=.mas2j&type=code)).
 
+### Question-10: Is it possible to use .findall to iterate through a list?
+The internal action [.findall](https://jason-lang.github.io/api/jason/stdlib/findall.html) in Jason is used for creating lists rather than accessing their individual elements. In Jason, lists serve the purpose of extracting elements that meet specific conditions such as minimum or maximum values.
+```asl
++!get_min(L,Min) : .findall(element(V),value(V),L)
+   <- .print("Elements in list: ",L);
+      .min(L,element(Min));
+      .print("Minimum value: ",Min).
+```
+To navigate through a list in Jason, you need recursion! Recursion triggers the plan iteratively, allowing you to access the elements of the list one by one. Let us represent a list L with a head and a tail: L = (H|T). The head refers to the first element of the list, while the tail refers to the rest of the elements in the list:
+```asl
++!triggering_event([], ...).
++!triggering_event([H|T], ...) : context
+    <- action(H);
+       ... ;
+       !triggering_event(T, ...).
+```
+
 ## 🛎 I have more questions
 
 Didn't find what you were looking for? No worries! Send us an email and we'll help you get the answers you need:

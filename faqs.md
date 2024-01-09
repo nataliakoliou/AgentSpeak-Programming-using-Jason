@@ -91,7 +91,7 @@ public class Env extends Environment {
 }
 ```
 
-### Question-8: How can I store the data of an object withing some grid environment?
+### Question-8: How can I store the data of an object within some grid environment?
 To keep track of objects' data in a grid environment, set up a list of maps in the Env class. Every time an object changes the grid (e.g. add/move/remove object), this list gets updated. Additionally, you may need to update the list in cases, where objects interact with agents. For example, in the taxi-world application, each entry in the list represents some customer's data, such as its ID, start and goal locations, as well as boolean variables indicating whether the customer has been served or is currently being served, etc:
 ```java
 public class Env extends Environment {
@@ -137,6 +137,17 @@ To navigate through a list in Jason, you need recursion! Recursion triggers the 
 To represent an object with multiple features in Jason, create a predicate with distinct values for each feature. For instance, in the taxi-world application, a client can be represented as a predicate with attributes such as its id, source and destination coordinates, initiator's id and taxi's id, service status, etc. Each time a new client enters the environment, such a predicate is added to the belief base of all agents:
 ```asl
 client(ClientID, SrcX, SrcY, DstX, DstY, InitID = none, TaxiID = none, Served = false, ...).
+```
+
+### Question-12: What is the correct way to define static literals in Java?
+When defining static literals in Java, it's important to ensure distinct values for each predicate. Consider the example below, which violates this principle by using a variable P within the literal:
+```java
+public static final Literal pos = Literal.parseLiteral("position(P)");
+```
+In Java, literals correspond to predicates present in .asl files. For instance, if the .asl file of an agent contains the predicates position(src) and position(dst), you should define two distinct static literals in Java, one for each instance of 'position':
+```java
+public static final Literal src = Literal.parseLiteral("position(src)");
+public static final Literal dst = Literal.parseLiteral("position(dst)");
 ```
 
 ## 🛎 I have more questions

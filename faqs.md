@@ -5,10 +5,11 @@ Have questions about the course or content? You're in the right place. Check out
 ## 🏛 Our Students Q&A Corner
 
 ### Question-1: How can I create multiple instances of the same agent?
+To create k instances of an agent in Jason, use this structure: #k, where k could be any number e.g. #2, #3, etc. Adjust k to determine the number of instances desired:
 ```mas2j
 MAS taxi_world {
     ...
-    agents: client #3;   // creates 3 instances of agent: client.asl
+    agents: taxi #k;   // creates k instances of agent: taxi.asl
     ...
 }
 ```
@@ -74,7 +75,7 @@ public class Env extends Environment {
 }
 ```
 
-### Question-7: How can I track and log actions in JASON?
+### Question-7: How can I track and log actions in Jason?
 To enable logging of agents' actions within your JASON environment, use [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) package in your Env class. This logging mechanism allows you to monitor actions taken at each timestep, through the JASON console.
 ```java
 import java.util.logging.Logger;
@@ -130,6 +131,12 @@ To navigate through a list in Jason, you need recursion! Recursion triggers the 
     <- action(H);
        ... ;
        !triggering_event(T, ...).
+```
+
+### Question-11: How can I represent an object with multiple features?
+To represent an object with multiple features in Jason, create a predicate with distinct values for each feature. For instance, in the taxi-world application, a client can be represented as a predicate with attributes such as its id, source and destination coordinates, initiator's id and taxi's id, service status, etc. Each time a new client enters the environment, such a predicate is added to the belief base of all agents:
+```asl
+client(ClientID, SrcX, SrcY, DstX, DstY, InitID = none, TaxiID = none, Served = false, ...).
 ```
 
 ## 🛎 I have more questions

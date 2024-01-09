@@ -159,6 +159,12 @@ public static final Literal src = Literal.parseLiteral("position(src)");
 public static final Literal dst = Literal.parseLiteral("position(dst)");
 ```
 
+### Question-13: How can I implement automatic agent reset when some condition is satisfied?
+To enable agent reset based on a condition, you'll need to create a plan within the agent's .asl file that triggers when a belief representing this condition is added to the agent's belief base. The body of this plan, will clear all the desires and intentions of the agent and prompts him to initiate its activity in the environment once again.
+```asl
++condition : true <- .drop_all_desires; .drop_all_intentions; !start.
+```
+
 ## 🛎 I have more questions
 
 Didn't find what you were looking for? No worries! Send us an email and we'll help you get the answers you need:

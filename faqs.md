@@ -165,6 +165,34 @@ To enable agent reset based on a condition, you'll need to create a plan within 
 +condition : true <- .drop_all_desires; .drop_all_intentions; !start.
 ```
 
+### Question-14: Can I register an agent as both participant and initiator when implementing CNP?
+Yes, you can have agents act as both participants and initiators within the Contract Net Protocol. However, using [.df_register](https://jason-lang.github.io/api/jason/stdlib/df_register.html) to achieve this isn't possible and leads to an error:
+```asl
++!register : true
+   <- .df_register("participant");
+      .df_register("initiator").
+```
+Although technically possible, registering agents with both roles (initiator-participant) using a concatenated form, doesn't serve any functional purpose. The internal action [.df_register](https://jason-lang.github.io/api/jason/stdlib/df_register.html) is typically useful when agents have distinct roles. However, in this case where agents hold the same multiple roles (participant-initiator), registering them as such won't help in distinguishing between roles in auctions:
+```asl
++!register : true
+   <- .df_register("initiator-participant").
+```
+Instead, consider defining a shared .asl file for all agents, where role functionalities are represented as plans:
+```asl
+// Initiator's Plan: initiate an auction for a customer
++customer(C) : not auction(C)  // No ongoing auction for this customer yet
+   <- +auction(C);
+      announce(auction(C));  // Add the belief "auction(C)" in the belief bases of all the agents
+      +participate(C);
+      !request_bids(C);
+      ...
+
+// Participant's Plan: participate in an auction for a customer
++participate(C)  // A request received from an initiator (or self) to join the auction
+    <- !submit_bid(C);
+       ...
+```
+
 ## 🛎 I have more questions
 
 Didn't find what you were looking for? No worries! Send us an email and we'll help you get the answers you need:

@@ -59,4 +59,4 @@ These steps simply show you how to build the default **hello world** app. This a
 This repository uses the [Jason Interpreter](https://github.com/jason-lang/jason). We would like to thank the developers and contributors for their dedication in creating and maintaining this invaluable tool.
 
 ## 🚀 Authors
-Christos Kyriazopoulos & [Natalia Koliou](https://www.linkedin.com/in/natalia-koliou-b37b01197/)
+[Natalia Koliou](https://www.linkedin.com/in/natalia-koliou-b37b01197/) & [Christos Kyriazopoulos](https://www.linkedin.com/in/chris-kyriazopoulos/)

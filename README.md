@@ -23,7 +23,7 @@ Follow these steps to set up your development environment in Visual Studio Code 
 4. If you're on Windows, don't forget to install a terminal and shell tool like [GitBash](https://gitforwindows.org/).
 5. Now, let's set up Jason:
    ### 🖥️ Windows & Unix
-   4.1. Go to the [SourceForge page](https://sourceforge.net/projects/jason/files/), and navigate to `jason/version3.2/`. Find **jason-bin-3.2.0.zip**, download and decompress it. You can place it wherever you like, but avoid storing it in the "Program Files" directory!
+   4.1. Go to the [SourceForge page](https://sourceforge.net/projects/jason/files/) and navigate to `jason/version3.2`. Find **jason-bin-3.2.0.zip**, download and decompress it. You can place it wherever you like, but avoid storing it in the "Program Files" directory!
    
    4.2. Fire up Visual Studio Code and select the Git Bash terminal (View > Terminal > Choose Git Bash).
    

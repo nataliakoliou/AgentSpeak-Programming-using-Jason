@@ -1,0 +1,13 @@
+/*
+Prisoner's Dilemma
+------------------
+This system demonstrates the implementation of the Prisoner's Dilemma, where agents interact and make decisions based on a payoff matrix, coordinated by CIA.
+*/
+
+MAS dilemma {
+
+    infrastructure: Local
+    agents: cia; prisoner #2;
+
+    aslSourcePath: "src/agt";
+}
